@@ -1,0 +1,34 @@
+{% extends 'shared/layout.twig' %}
+{% block title %}StackImage - Login{% endblock %}
+{% block content %}
+    
+<!-- container pentru continutul paginii  care are o margine top de 100 pixeli-->
+<div class="container margin-top-100">
+    <!-- rand cu aliniere pe centru -->
+    <div class="row align-items-center">
+        <!-- centrul cotnainerului pentru login lung de 6 coloane -->
+        <div class="col-6 mx-auto">
+            <!-- design pentru coloane -->
+            <div class="jumbotron center-container-login shadow p-3">
+
+                <h2>Login</h2>
+
+                <!-- input pentru email -->
+                <div class="form-group">
+                    <input type="email" placeholder="Email" class="form-control custom-input"
+                        id="emailInput" aria-describedby="emailHelp">
+                </div>
+
+                <!-- input pentru password -->
+                <div class="form-group">
+                    <input type="password" placeholder="Password" class="form-control custom-input"
+                        id="passwordInput" aria-describedby="emailHelp">
+                </div>
+
+                <!-- button de submit, apeleaza functia loginAction din fisierul script.js -->
+                <button onclick="loginAction()" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

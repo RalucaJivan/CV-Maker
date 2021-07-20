@@ -1,0 +1,22 @@
+{% extends 'shared/layout.twig' %}
+{% block title %}StackImages{% endblock %}
+{% block content %}
+    <div class="container-fluid ">
+        <div class="row ">
+            <div class="col-md-4 text-content-homepage">
+                <!-- continutul din stanga ( titlul si butoanele ) -->
+                <h1>CV Maker</h2>
+                    <h3>Create your best resume</h3>
+                    <p>
+                        <a type="button" id="register_button" class="btn btn-primary purple-button"></a>
+                        <a type="button" id="login_button" class="btn btn-primary purple-button"></a>
+                    </p>
+            </div>
+            <!-- imaginea din dreapta homepage-ului -->
+            <div class="col-md-5 offset-md-1 text-right margin-auto">
+                <img src="{{ url }}/asserts/img/resume_vector.svg" class="resume-style">
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

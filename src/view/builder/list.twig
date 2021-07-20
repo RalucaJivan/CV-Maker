@@ -1,0 +1,60 @@
+{% extends 'shared/layout.twig' %}
+{% block title %}StackImage - Login{% endblock %}
+{% block content %}
+    
+<script>
+    if (localStorage.getItem('key') == undefined) {
+        window.location.href = "{{url}}/account/login";
+    } else {
+        let currentDate = new Date().getTime();
+        let storageTime = localStorage.getItem('auth_date');
+        if(currentDate - storageTime > localStorage.getItem('expire') * 1000){
+            localStorage.clear();
+            window.location.href = "{{url}}/account/login";
+        }
+    }
+</script>
+
+    <!-- container pentru sectiunea de informatii despre utilizator -->
+    <div class="container">
+        <div class="row align-items-end">
+            <div class="col-12 mx-auto">
+                <div class="jumbotron text-right" style="background-color: transparent;">
+                    <button class="btn btn-primary reverseViewButton" data-toggle="modal" data-target="#createModal">Create a new CV</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group col-md-12">
+                <input type="text" placeholder="CV Name" class="form-control custom-input"
+                    id="cv_name" aria-describedby="emailHelp">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" onclick="createCV()" class="btn btn-primary">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="CvListContainer">
+      
+  </div>
+
+
+
+   
+
+{% endblock %}

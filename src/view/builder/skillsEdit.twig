@@ -1,0 +1,63 @@
+{% extends 'shared/layout.twig' %}
+{% block title %}StackImages{% endblock %}
+{% block content %}
+<script>
+    if (localStorage.getItem('key') == undefined) {
+        window.location.href = "{{url}}/account/login";
+    } else {
+        let currentDate = new Date().getTime();
+        let storageTime = localStorage.getItem('auth_date');
+        if(currentDate - storageTime > localStorage.getItem('expire') * 1000){
+            localStorage.clear();
+            window.location.href = "{{url}}/account/login";
+        }
+    }
+</script>
+
+<div class="container margin-top-100">
+    <div class="row align-items-center">
+        <div class="col-12 mx-auto">
+            <div class="jumbotron center-section-container shadow p-3">
+
+                <h2>Technical Skills</h2>
+
+                <div id="TechnicalContainer">
+
+                </div>
+
+                <button onclick="addTechnicalSkill()" class="btn btn-primary">Add</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- container pentru informatiile de baza -->
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-12 mx-auto">
+            <div class="jumbotron center-section-container shadow p-3">
+
+                <h2>Personal Skills</h2>
+
+                <div id="PersonalContainer">
+
+                </div>
+
+                <button onclick="addPersonalSkill()" class="btn btn-primary">Add</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- container pentru informatiile de baza -->
+
+<div class="container" style="margin-bottom: 100px;">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4 text-center">
+            <button onclick="saveSkills()" class="btn btn-primary">Save</button>
+            <a href="{{url}}/builder/view/{{id}}" class="btn btn-primary">Back to Viewer</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

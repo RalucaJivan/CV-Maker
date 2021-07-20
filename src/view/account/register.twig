@@ -1,0 +1,45 @@
+{% extends 'shared/layout.twig' %}
+{% block title %}StackImage - Register{% endblock %}
+{% block content %}
+<!-- container pentru continutul paginii  care are o margine top de 100 pixeli-->
+    <div class="container margin-top-100">
+        <!-- rand cu aliniere pe centru -->
+        <div class="row align-items-center">
+            <!-- centrul cotnainerului pentru login lung de 6 coloane -->
+            <div class="col-6 mx-auto">
+                <!-- design pentru coloane -->
+                <div class="jumbotron center-container-login shadow p-3">
+
+                    <h2>Register</h2>
+
+                    <!-- input pentru username -->
+                    <div class="form-group">
+                        <input type="text" placeholder="Username" class="form-control custom-input"
+                            id="usernameInput" aria-describedby="emailHelp">
+                    </div>
+
+                    <!-- input pentru email -->
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" class="form-control custom-input"
+                            id="emailInput" aria-describedby="emailHelp">
+                    </div>
+
+                    <!-- input pentru password -->
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control custom-input"
+                            id="passwordInput" aria-describedby="emailHelp">
+                    </div>
+
+                    <!-- input pentru confirmpassword -->
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" class="form-control custom-input"
+                            id="confirmPasswordInput" aria-describedby="emailHelp">
+                    </div>
+
+                    <!-- butonul de submit, apeleaza functio registerAction din fisierul script.js -->
+                    <button onclick="registerAction()" class="btn btn-primary">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
